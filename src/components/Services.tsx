@@ -1,92 +1,17 @@
 import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef, useState } from "react";
-import { ChevronRight } from "lucide-react";
+import { ChevronRight, ExternalLink } from "lucide-react";
+import { serviceData } from "@/data/services";
+import { Link } from "react-router-dom";
 
 const Services = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
   const [activeCategory, setActiveCategory] = useState(0);
 
-  const serviceCategories = [
-    {
-      title: "Balsa Salva-Vidas (Liferaft)",
-      subtitle: "Venda, Aluguer e Manutenção",
-      services: [
-        "Fornecimento de balsas certificadas",
-        "Aluguer temporário para operações",
-        "Manutenção preventiva e corretiva",
-        "Inspeção anual obrigatória"
-      ]
-    },
-    {
-      title: "Aparelhos Respiratórios",
-      subtitle: "Inspeção e Manutenção",
-      services: [
-        "Inspeção anual de EEBD",
-        "Inspeção anual de SCBA",
-        "Calibração de Detetor de Gás",
-        "Manutenção anual de compressor de ar respirável"
-      ]
-    },
-    {
-      title: "Gases Medicinais",
-      subtitle: "Cilindros e Recarga",
-      services: [
-        "Inspeção anual de Cilindros",
-        "Medicinal e de Ar Respirável",
-        "Recarga de cilindros Medicinal e de Ar Respirável",
-        "Teste hidráulico de Cilindro de ar Medicinal"
-      ]
-    },
-    {
-      title: "Gases Industriais",
-      subtitle: "Acetileno e Sistemas Fixos",
-      services: [
-        "Recarga de Cilindro Acetileno",
-        "Inspeção anual do Sistema fixo de Acetileno",
-        "Fornecimento de gases industriais",
-        "Manutenção de sistemas"
-      ]
-    },
-    {
-      title: "Combate a Incêndio",
-      subtitle: "Equipamentos e Manutenção",
-      services: [
-        "Análise de espuma de combate a incêndios",
-        "Inspeção Anual e manutenção de Extintor de Incêndio",
-        "Recarga de extintores de 1kg á 50kg",
-        "Recarga de garrafa de CO2",
-        "Inspeção anual do sistema fixo CO2",
-        "Serviço de teste hidráulico em Extintor de Incêndio",
-        "Recarga de garrafa de nitrogénio"
-      ]
-    },
-    {
-      title: "Equipamento de Proteção Pessoal",
-      subtitle: "EPI's Especializados",
-      services: [
-        "Inspeção anual nos fatos de imersão",
-        "Manutenção anual de lifejackets",
-        "Inspeção anual de trajes químicos",
-        "Fornecimento de EPI's certificados"
-      ]
-    },
-    {
-      title: "Gestão de Armazém",
-      subtitle: "Controlo e Otimização",
-      services: [
-        "Controlo Físico do Armazém",
-        "Dimensionamento do Layout do Armazém",
-        "Layout do Armazém com Auxílio do computador",
-        "Dimensionamento do Espaço",
-        "Redução de custos do Armazém",
-        "Manutenção e treinamento",
-        "Método curva ABC",
-        "Acurácia do inventário"
-      ]
-    }
-  ];
+  // Service data is now in src/data/services.ts
+  const serviceCategories = serviceData;
 
   return (
     <section id="services" className="py-24 relative overflow-hidden" ref={ref}>
@@ -127,7 +52,7 @@ const Services = () => {
                   className={`w-full text-left p-4 rounded-xl transition-all duration-300 flex items-center justify-between group ${
                     activeCategory === index
                       ? "bg-primary text-primary-foreground"
-                      : "hover:bg-muted text-foreground"
+                      : "hover:bg-primary/10 text-foreground"
                   }`}
                   onClick={() => setActiveCategory(index)}
                 >
@@ -171,13 +96,20 @@ const Services = () => {
                       {serviceCategories[activeCategory].subtitle}
                     </p>
                   </div>
+                  <Link 
+                    to={`/service/${serviceCategories[activeCategory].id}`}
+                    className="ml-auto flex items-center gap-2 text-primary font-bold hover:underline"
+                  >
+                    Ver detalhes completos
+                    <ExternalLink className="w-4 h-4" />
+                  </Link>
                 </div>
 
                 <div className="grid sm:grid-cols-2 gap-4">
                   {serviceCategories[activeCategory].services.map((service, index) => (
                     <motion.div
                       key={index}
-                      className="flex items-start gap-3 p-4 rounded-xl bg-muted/30 hover:bg-muted/50 transition-colors"
+                      className="flex items-start gap-3 p-4 rounded-xl bg-primary/5 hover:bg-primary/10 transition-colors"
                       initial={{ opacity: 0, y: 10 }}
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ duration: 0.3, delay: index * 0.05 }}

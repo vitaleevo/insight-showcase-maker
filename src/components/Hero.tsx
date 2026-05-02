@@ -6,7 +6,7 @@ import heroBg from "@/assets/hero-bg.jpg";
 const Hero = () => {
   const trustBadges = [
     { icon: Shield, label: "ISO 9001" },
-    { icon: Award, label: "20+ Anos" },
+    { icon: Award, label: "5+ Anos" },
     { icon: Anchor, label: "SOLAS / MED" },
   ];
 
@@ -24,8 +24,8 @@ const Hero = () => {
           width={1920}
           height={1080}
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-background via-background/85 to-background/30" />
-        <div className="absolute inset-0 bg-gradient-to-t from-background via-background/20 to-background/60" />
+        <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/60 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-black/20" />
         <div className="absolute inset-0 gradient-mesh" />
       </div>
 
@@ -69,18 +69,18 @@ const Hero = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.1 }}
           >
-            <span className="text-foreground">Protegemos o que</span>
+            <span className="text-white">Protegemos o que</span>
             <br />
             <span className="text-gradient-primary">move Angola</span>
             <br />
-            <span className="text-foreground/90 text-3xl md:text-4xl lg:text-5xl font-medium">
+            <span className="text-white/90 text-3xl md:text-4xl lg:text-5xl font-medium">
               em terra, mar e ar.
             </span>
           </motion.h1>
 
           {/* Description */}
           <motion.p
-            className="text-lg md:text-xl text-muted-foreground max-w-2xl mb-10 leading-relaxed"
+            className="text-lg md:text-xl text-white/70 max-w-2xl mb-10 leading-relaxed"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
@@ -98,13 +98,13 @@ const Hero = () => {
             transition={{ duration: 0.6, delay: 0.3 }}
           >
             <Button asChild size="lg" className="shadow-button rounded-full group h-12 px-7">
-              <a href="#services">
+              <a href="/#services">
                 Conheça os nossos serviços
                 <ArrowRight className="ml-1 w-4 h-4 transition-transform group-hover:translate-x-1" />
               </a>
             </Button>
             <Button asChild variant="outline" size="lg" className="rounded-full h-12 px-7 border-border/60 backdrop-blur-md bg-card/30 hover:bg-card/60">
-              <a href="#about">
+              <a href="/#about">
                 <PlayCircle className="w-5 h-5" />
                 Sobre a ALMAFRANS
               </a>
@@ -127,7 +127,7 @@ const Hero = () => {
                 className="flex items-center gap-2 px-4 py-2 rounded-full border border-border/50 bg-card/40 backdrop-blur-md"
               >
                 <b.icon className="w-4 h-4 text-primary" />
-                <span className="text-sm font-medium text-foreground">{b.label}</span>
+                <span className="text-sm font-medium text-white">{b.label}</span>
               </div>
             ))}
           </motion.div>

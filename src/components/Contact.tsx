@@ -62,7 +62,7 @@ const Contact = () => {
     {
       icon: MapPin,
       title: "Escritório Sede",
-      details: ["Belas Business Park", "Edifício Cunene 301", "Luanda, Angola"],
+      details: ["Av. 4 de fevereiro, prédio nº23, 3º Andar", "( Junto ao porto de luanda )"],
     },
     {
       icon: Phone,

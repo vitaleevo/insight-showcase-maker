@@ -7,16 +7,16 @@ const Footer = () => {
 
   const links = {
     company: [
-      { name: "Sobre Nós", href: "#about" },
-      { name: "Serviços", href: "#services" },
-      { name: "Sectores", href: "#sectors" },
-      { name: "Contacto", href: "#contact" }
+      { name: "Sobre Nós", href: "/#about" },
+      { name: "Serviços", href: "/#services" },
+      { name: "Sectores", href: "/#sectors" },
+      { name: "Contacto", href: "/#contact" }
     ],
     services: [
-      { name: "Segurança Marítima", href: "#services" },
-      { name: "Combate a Incêndio", href: "#services" },
-      { name: "Gases Industriais", href: "#services" },
-      { name: "Gestão de Armazém", href: "#services" }
+      { name: "Segurança Marítima", href: "/#services" },
+      { name: "Combate a Incêndio", href: "/#services" },
+      { name: "Gases Industriais", href: "/#services" },
+      { name: "Gestão de Armazém", href: "/#services" }
     ]
   };
 
@@ -30,11 +30,7 @@ const Footer = () => {
           {/* Brand */}
           <div className="lg:col-span-1">
             <motion.div className="flex items-center gap-3 mb-6" whileHover={{ scale: 1.02 }}>
-              <img src={logo} alt="ALMAFRANS" className="h-12 w-12 object-contain" loading="lazy" width={48} height={48} />
-              <div>
-                <span className="font-display font-bold text-xl text-foreground">ALMAFRANS</span>
-                <p className="text-[10px] uppercase tracking-[0.2em] text-muted-foreground">Safety · Marine</p>
-              </div>
+              <img src={logo} alt="ALMAFRANS" className="h-14 w-auto object-contain" loading="lazy" />
             </motion.div>
             <p className="text-muted-foreground mb-6 leading-relaxed text-sm">
               Empresa de direito 100% angolano, especializada em comércio e prestação de serviços
@@ -95,8 +91,8 @@ const Footer = () => {
               <li className="flex items-start gap-3">
                 <MapPin className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
                 <span className="text-muted-foreground text-sm">
-                  Belas Business Park, Edifício Cunene 301<br />
-                  Luanda, Angola
+                  Av. 4 de fevereiro, prédio nº23, 3º Andar<br />
+                  ( Junto ao porto de luanda )
                 </span>
               </li>
               <li className="flex items-center gap-3">

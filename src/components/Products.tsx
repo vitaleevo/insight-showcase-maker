@@ -1,80 +1,14 @@
-import { motion } from "framer-motion";
-import { useInView } from "framer-motion";
+import { motion, useInView } from "framer-motion";
 import { useRef, useState } from "react";
-
-// Service images
-import lifejacket from "@/assets/services/lifejacket.jpg";
-import fireExtinguishers from "@/assets/services/fire-extinguishers.jpg";
-import safetyBoots from "@/assets/services/safety-boots.jpg";
-import respiratorMask from "@/assets/services/respirator-mask.jpg";
-import breathingDevice from "@/assets/services/breathing-device.jpg";
-import immersionSuit from "@/assets/services/immersion-suit.jpg";
-import firemanHelmet from "@/assets/services/fireman-helmet.jpg";
-import fireHose from "@/assets/services/fire-hose.jpg";
+import { products } from "@/data/products";
+import { Link } from "react-router-dom";
 
 const Products = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
   const [selectedCategory, setSelectedCategory] = useState("all");
 
-  const products = [
-    {
-      id: 1,
-      name: "Colete Salva-Vidas",
-      category: "maritime",
-      image: lifejacket,
-      description: "Coletes infláveis e de espuma certificados SOLAS/MED"
-    },
-    {
-      id: 2,
-      name: "Extintores de Incêndio",
-      category: "fire",
-      image: fireExtinguishers,
-      description: "ABC, CO2, Espuma e Água - todos os tamanhos"
-    },
-    {
-      id: 3,
-      name: "Calçado de Segurança",
-      category: "epi",
-      image: safetyBoots,
-      description: "Botas com biqueira de aço e compósito, antiderrapante"
-    },
-    {
-      id: 4,
-      name: "Máscaras Respiratórias",
-      category: "epi",
-      image: respiratorMask,
-      description: "FFP1, FFP2, FFP3 - proteção respiratória certificada"
-    },
-    {
-      id: 5,
-      name: "Aparelhos Respiratórios",
-      category: "maritime",
-      image: breathingDevice,
-      description: "EEBD e SCBA - equipamentos de emergência"
-    },
-    {
-      id: 6,
-      name: "Fato de Imersão",
-      category: "maritime",
-      image: immersionSuit,
-      description: "Proteção térmica para sobrevivência no mar"
-    },
-    {
-      id: 7,
-      name: "Capacete de Bombeiro",
-      category: "fire",
-      image: firemanHelmet,
-      description: "Certificado SOLAS/MED para combate a incêndio"
-    },
-    {
-      id: 8,
-      name: "Mangueiras e Hidrantes",
-      category: "fire",
-      image: fireHose,
-      description: "Sistemas completos de combate a incêndio"
-    }
-  ];
+  // Product data is now in src/data/products.ts
 
   const categories = [
     { id: "all", name: "Todos" },
@@ -90,7 +24,7 @@ const Products = () => {
   return (
     <section id="products" className="py-24 relative overflow-hidden" ref={ref}>
       {/* Background */}
-      <div className="absolute inset-0 bg-gradient-to-b from-secondary/30 via-background to-background" />
+      <div className="absolute inset-0 bg-gradient-to-b from-primary/5 via-background to-background" />
 
       <div className="container mx-auto px-6 relative z-10">
         {/* Header */}
@@ -126,9 +60,9 @@ const Products = () => {
               onClick={() => setSelectedCategory(cat.id)}
               className={`px-6 py-2.5 rounded-full font-medium transition-all duration-300 ${
                 selectedCategory === cat.id
-                  ? "bg-primary text-primary-foreground shadow-button"
-                  : "bg-muted text-muted-foreground hover:bg-muted/80"
-              }`}
+                  ? "bg-black text-white shadow-button"
+                  : "bg-black/5 text-black hover:bg-black/10"
+              } border border-black/10`}
             >
               {cat.name}
             </button>
@@ -149,33 +83,41 @@ const Products = () => {
               transition={{ duration: 0.5, delay: index * 0.1 }}
               layout
             >
-              <div className="glow-card gradient-card rounded-2xl overflow-hidden border border-border/60 hover:border-primary/40 transition-all duration-500 h-full hover:-translate-y-1 hover:shadow-card-hover">
-                {/* Image */}
-                <div className="relative h-52 overflow-hidden bg-secondary/40">
-                  <img
-                    src={product.image}
-                    alt={product.name}
-                    loading="lazy"
-                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-card via-card/20 to-transparent opacity-80" />
-                  <div className="absolute top-3 left-3">
-                    <span className="text-[10px] uppercase tracking-wider px-2.5 py-1 rounded-full bg-background/70 backdrop-blur-md border border-border/60 text-primary font-medium">
-                      Certificado
-                    </span>
+              <Link to={`/product/${product.id}`} className="block h-full">
+                <div className="glow-card gradient-card rounded-2xl overflow-hidden border border-border/60 hover:border-primary/40 transition-all duration-500 h-full hover:-translate-y-1 hover:shadow-card-hover">
+                  {/* Image */}
+                  <div className="relative h-52 overflow-hidden bg-secondary/40">
+                    <img
+                      src={product.image}
+                      alt={product.name}
+                      loading="lazy"
+                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
+                    <div className="absolute top-3 left-3">
+                      <span className="text-[10px] uppercase tracking-wider px-2.5 py-1 rounded-full bg-primary text-primary-foreground font-bold shadow-lg">
+                        Certificado
+                      </span>
+                    </div>
+                  </div>
+
+                  {/* Content */}
+                  <div className="p-5">
+                    <h3 className="font-display font-semibold text-lg text-foreground mb-2 group-hover:text-primary transition-colors">
+                      {product.name}
+                    </h3>
+                    <p className="text-muted-foreground text-sm leading-relaxed">
+                      {product.description}
+                    </p>
+                    <div className="mt-4 flex items-center text-primary text-xs font-bold uppercase tracking-wider opacity-0 group-hover:opacity-100 transition-opacity">
+                      Ver detalhes
+                      <svg className="w-3 h-3 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                      </svg>
+                    </div>
                   </div>
                 </div>
-
-                {/* Content */}
-                <div className="p-5">
-                  <h3 className="font-display font-semibold text-lg text-foreground mb-2 group-hover:text-primary transition-colors">
-                    {product.name}
-                  </h3>
-                  <p className="text-muted-foreground text-sm leading-relaxed">
-                    {product.description}
-                  </p>
-                </div>
-              </div>
+              </Link>
             </motion.div>
           ))}
         </motion.div>
@@ -191,7 +133,7 @@ const Products = () => {
             Precisa de um produto específico? Temos um catálogo completo de equipamentos certificados.
           </p>
           <a 
-            href="#contact" 
+            href="/#contact" 
             className="inline-flex items-center gap-2 text-primary font-medium hover:underline"
           >
             Solicite o catálogo completo

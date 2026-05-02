@@ -28,7 +28,7 @@ const About = () => {
 
   const highlights = [
     "Empresa de direito 100% angolano",
-    "Mais de 20 anos de experiência",
+    "Mais de 5 anos de experiência",
     "Certificação ISO 9001",
     "Rede de relações comerciais sólidas",
     "Produtos de alta qualidade",
@@ -57,7 +57,7 @@ const About = () => {
                   alt="Profissional ALMAFRANS"
                   className="w-full h-[500px] object-cover"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-background/60 via-transparent to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
               </div>
 
               {/* Floating Badge */}
@@ -66,7 +66,7 @@ const About = () => {
                 animate={{ y: [0, -10, 0] }}
                 transition={{ duration: 4, repeat: Infinity }}
               >
-                <p className="font-display font-bold text-4xl text-primary-foreground">20+</p>
+                <p className="font-display font-bold text-4xl text-primary-foreground">5+</p>
                 <p className="text-primary-foreground/80 text-sm">Anos de Experiência</p>
               </motion.div>
 
