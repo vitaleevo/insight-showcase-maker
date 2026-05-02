@@ -149,15 +149,21 @@ const Products = () => {
               transition={{ duration: 0.5, delay: index * 0.1 }}
               layout
             >
-              <div className="gradient-card rounded-2xl overflow-hidden border border-border hover:border-primary/40 transition-all duration-500 h-full">
+              <div className="glow-card gradient-card rounded-2xl overflow-hidden border border-border/60 hover:border-primary/40 transition-all duration-500 h-full hover:-translate-y-1 hover:shadow-card-hover">
                 {/* Image */}
-                <div className="relative h-48 overflow-hidden">
+                <div className="relative h-52 overflow-hidden bg-secondary/40">
                   <img
                     src={product.image}
                     alt={product.name}
-                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                    loading="lazy"
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-card via-transparent to-transparent opacity-60" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-card via-card/20 to-transparent opacity-80" />
+                  <div className="absolute top-3 left-3">
+                    <span className="text-[10px] uppercase tracking-wider px-2.5 py-1 rounded-full bg-background/70 backdrop-blur-md border border-border/60 text-primary font-medium">
+                      Certificado
+                    </span>
+                  </div>
                 </div>
 
                 {/* Content */}

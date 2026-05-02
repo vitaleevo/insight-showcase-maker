@@ -84,34 +84,31 @@ const Sectors = () => {
               className="group relative"
               initial={{ opacity: 0, y: 30 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
+              transition={{ duration: 0.5, delay: index * 0.08 }}
             >
-              <div className="relative gradient-card rounded-2xl p-8 border border-border hover:border-primary/40 transition-all duration-500 h-full overflow-hidden">
+              <div className="glow-card relative gradient-card rounded-2xl p-8 border border-border/60 hover:border-primary/40 transition-all duration-500 h-full overflow-hidden hover:shadow-card-hover hover:-translate-y-1">
                 {/* Gradient Background */}
                 <div className={`absolute inset-0 bg-gradient-to-br ${sector.gradient} opacity-0 group-hover:opacity-100 transition-opacity duration-500`} />
+                <div className="absolute -top-12 -right-12 w-40 h-40 rounded-full bg-primary/5 blur-3xl group-hover:bg-primary/10 transition-all duration-500" />
 
                 {/* Content */}
                 <div className="relative z-10">
-                  {/* Icon */}
                   <motion.div
-                    className="w-16 h-16 rounded-2xl bg-primary/10 flex items-center justify-center mb-6 group-hover:bg-primary/20 group-hover:shadow-glow transition-all duration-300"
-                    whileHover={{ scale: 1.1, rotate: 5 }}
+                    className="w-16 h-16 rounded-2xl bg-primary/10 border border-primary/20 flex items-center justify-center mb-6 group-hover:bg-primary/20 group-hover:shadow-glow transition-all duration-300"
+                    whileHover={{ scale: 1.08, rotate: -4 }}
                   >
                     <sector.icon className="w-8 h-8 text-primary" />
                   </motion.div>
 
-                  {/* Title */}
                   <h3 className="font-display font-bold text-xl mb-3 text-foreground group-hover:text-primary transition-colors">
                     {sector.title}
                   </h3>
 
-                  {/* Description */}
                   <p className="text-muted-foreground leading-relaxed">
                     {sector.description}
                   </p>
 
-                  {/* Hover Arrow */}
-                  <div className="mt-6 flex items-center gap-2 text-primary opacity-0 group-hover:opacity-100 transition-opacity">
+                  <div className="mt-6 flex items-center gap-2 text-primary opacity-0 group-hover:opacity-100 -translate-x-2 group-hover:translate-x-0 transition-all duration-300">
                     <span className="text-sm font-medium">Saiba mais</span>
                     <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
