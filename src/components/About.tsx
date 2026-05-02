@@ -130,13 +130,16 @@ const About = () => {
           {values.map((value, index) => (
             <div
               key={index}
-              className="gradient-card rounded-2xl p-8 border border-border hover:border-primary/30 transition-all duration-300 group"
+              className="glow-card gradient-card rounded-2xl p-8 border border-border/60 hover:border-primary/40 transition-all duration-500 group hover:-translate-y-1 hover:shadow-card-hover relative overflow-hidden"
             >
-              <div className="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center mb-6 group-hover:bg-primary/20 transition-colors">
-                <value.icon className="w-7 h-7 text-primary" />
+              <div className="absolute -top-16 -right-16 w-40 h-40 rounded-full bg-primary/5 blur-3xl group-hover:bg-primary/10 transition-all" />
+              <div className="relative">
+                <div className="w-14 h-14 rounded-xl bg-primary/10 border border-primary/20 flex items-center justify-center mb-6 group-hover:bg-primary/20 group-hover:shadow-glow transition-all">
+                  <value.icon className="w-7 h-7 text-primary" />
+                </div>
+                <h3 className="font-display font-bold text-xl mb-3 text-foreground">{value.title}</h3>
+                <p className="text-muted-foreground leading-relaxed">{value.description}</p>
               </div>
-              <h3 className="font-display font-bold text-xl mb-3 text-foreground">{value.title}</h3>
-              <p className="text-muted-foreground leading-relaxed">{value.description}</p>
             </div>
           ))}
         </motion.div>
