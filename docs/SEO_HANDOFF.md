@@ -21,7 +21,9 @@ Domínio principal existente na Vercel: `https://www.almafrans.ao`.
 - Atualização de título, descrição, canonical e partilha social durante a navegação React.
 - Página de erro com `noindex` e sem canonical de uma página válida.
 
-O conteúdo visual continua a ser renderizado pelo React no navegador. Os ficheiros gerados contêm metadados estáticos; esta alteração não constitui renderização completa do conteúdo no servidor. Não altera os emails `info@almafrans.com` existentes no site.
+O conteúdo visual continua a ser renderizado pelo React no navegador. Os ficheiros gerados contêm metadados estáticos; esta alteração não constitui renderização completa do conteúdo no servidor.
+
+O PR #1 foi aprovado pelo proprietário e integrado em `main` no commit `72e353d247efd2076baea403e75cb39554bbbcb0`. A publicação Vercel concluiu com sucesso. O redirecionamento para `www` foi alterado para permanente 308. O proprietário também confirmou `info@almafrans.ao` como email de contacto, substituindo o endereço `.com` no cabeçalho, contactos e rodapé.
 
 ## Validação local
 

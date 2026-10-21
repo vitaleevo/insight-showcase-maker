@@ -36,9 +36,9 @@ const Header = () => {
               <Phone className="w-3.5 h-3.5" />
               <span>(+244) 928 867 132</span>
             </a>
-            <a href="mailto:info@almafrans.com" className="flex items-center gap-2 text-white/90 hover:text-white transition-colors">
+            <a href="mailto:info@almafrans.ao" className="flex items-center gap-2 text-white/90 hover:text-white transition-colors">
               <Mail className="w-3.5 h-3.5" />
-              <span>info@almafrans.com</span>
+              <span>info@almafrans.ao</span>
             </a>
           </div>
           <div className="flex items-center gap-4 text-white/90">

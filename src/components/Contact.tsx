@@ -69,7 +69,7 @@ const Contact = () => {
       title: "Telefones",
       details: ["(+244) 928 867 132", "(+244) 923 276 552"],
     },
-    { icon: Mail, title: "Email", details: ["info@almafrans.com"] },
+    { icon: Mail, title: "Email", details: ["info@almafrans.ao"] },
     { icon: Clock, title: "Horário", details: ["Segunda a Sexta", "08:00 - 17:00"] },
   ];
 
