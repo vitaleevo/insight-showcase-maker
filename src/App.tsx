@@ -11,6 +11,7 @@ import SafetyFootwear from "./pages/SafetyFootwear";
 import NotFound from "./pages/NotFound";
 
 import MobileBottomNav from "./components/MobileBottomNav";
+import PageMetadata from "./components/PageMetadata";
 
 const queryClient = new QueryClient();
 
@@ -20,6 +21,7 @@ const App = () => (
       <Toaster />
       <Sonner />
       <BrowserRouter>
+        <PageMetadata />
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/product/:id" element={<ProductDetail />} />
